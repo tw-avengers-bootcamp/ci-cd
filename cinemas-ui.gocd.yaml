@@ -1,0 +1,39 @@
+format_version: 2
+pipelines:
+  "cinemas-ui":
+    group: just-cinemas
+    materials:
+      cinemas-ui:
+        git: "git@git.thoughtworks.net:bootcamp-trainers/just-cinemas-ui.git"
+    stages:
+      - lint:
+          jobs:
+            lint:
+              resources:
+                - node
+              tasks:
+                - script: |
+                    npm install
+                    npm run lint
+      - test:
+          jobs:
+            test:
+              resources:
+                - node
+              tasks:
+                - script: |
+                    npm install
+                    npm run test
+      - build:
+          jobs:
+            build:
+              artifacts:
+                - build:
+                    source: dist
+                    destination: dist
+              resources:
+                - node
+              tasks:
+                - script: |
+                    npm install
+                    npm run dist

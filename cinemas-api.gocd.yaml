@@ -1,0 +1,36 @@
+format_version: 2
+pipelines:
+  "cinemas-api":
+    group: just-cinemas
+    materials:
+      cinemas-backend:
+        git: "git@git.thoughtworks.net:bootcamp-trainers/just-cinemas-services.git"
+    stages:
+      - test:
+          jobs:
+            test:
+              resources:
+                - java
+              artifacts:
+                - test:
+                    source: build/reports/tests/**
+                    destination: test-reports/
+              tabs:
+                Report: test-reports/build/reports/tests/test/index.html
+              tasks:
+                - script: |
+                    cp src/test/resources/test-application.properties.ci src/test/resources/test-application.properties
+                    ./gradlew clean test
+      - build:
+          jobs:
+            build:
+              artifacts:
+                - build:
+                    source: build/libs/*.jar
+                    destination: libs/
+              resources:
+                - java
+              tasks:
+                - script: |
+                    cp src/test/resources/test-application.properties.ci src/test/resources/test-application.properties
+                    ./gradlew clean assemble

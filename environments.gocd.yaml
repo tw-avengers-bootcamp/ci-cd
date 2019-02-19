@@ -1,0 +1,6 @@
+format_version: 2
+environments:
+  ci:
+    pipelines:
+      - "cinemas-ui"
+      - "cinemas-api"
