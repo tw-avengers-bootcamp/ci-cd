@@ -4,7 +4,7 @@ pipelines:
     group: just-cinemas
     materials:
       cinemas-ui:
-        git: "git@git.thoughtworks.net:bootcamp-trainers/just-cinemas-ui.git"
+        git: "https://github.com/tw-avengers-bootcamp/bootcamp-just-cinemas-ui.git"
     stages:
       - lint:
           jobs:

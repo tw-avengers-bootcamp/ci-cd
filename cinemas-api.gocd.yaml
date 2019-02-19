@@ -4,7 +4,7 @@ pipelines:
     group: just-cinemas
     materials:
       cinemas-backend:
-        git: "git@git.thoughtworks.net:bootcamp-trainers/just-cinemas-services.git"
+        git: "https://github.com/tw-avengers-bootcamp/bootcamp-just-cinemas-api.git"
     stages:
       - test:
           jobs:

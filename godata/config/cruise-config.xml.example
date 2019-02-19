@@ -11,7 +11,7 @@ schemaVersion="100">
     <config-repos>
         <config-repo pluginId="yaml.config.plugin"
         id="daaa9307-f96b-4d6f-9056-68cd79453280">
-            <git url="git@git.thoughtworks.net:bootcamp-trainers/just-cinemas-ci.git" />
+            <git url="https://github.com/tw-avengers-bootcamp/ci-cd.git" />
         </config-repo>
     </config-repos>
     <pipelines group="just-cinemas" />
