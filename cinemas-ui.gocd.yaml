@@ -13,8 +13,8 @@ pipelines:
                 - node
               tasks:
                 - script: |
-                    npm install
-                    npm run lint
+                    yarn install
+                    yarn lint
       - test:
           jobs:
             test:
@@ -22,18 +22,18 @@ pipelines:
                 - node
               tasks:
                 - script: |
-                    npm install
-                    npm run test
+                    yarn install
+                    yarn test_with_coverage
       - build:
           jobs:
             build:
               artifacts:
                 - build:
-                    source: dist
+                    source: build
                     destination: dist
               resources:
                 - node
               tasks:
                 - script: |
-                    npm install
-                    npm run dist
+                    yarn install
+                    yarn build
